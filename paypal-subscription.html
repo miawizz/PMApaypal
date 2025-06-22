@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Join via PayPal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background-color: #fff8f0;
+            color: #333;
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #d18b00;
+        }
+        .paypal-button {
+            margin: 2rem 0;
+        }
+        p {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Subscribe with PayPal</h1>
+    <p>Choose a subscription option below to join the membership using PayPal. We’ll send your access via email within 24 hours.</p>
+
+    <div class="paypal-button">
+        <h2>Monthly Subscription</h2>
+        <div id="paypal-button-container-P-4G508223KV1508520NBMCMVQ"></div>
+    </div>
+
+    <div class="paypal-button">
+        <h2>Yearly Subscription</h2>
+        <div id="paypal-button-container-P-4PM27962EG712070MNBMCPPI"></div>
+    </div>
+
+    <p>Having trouble or didn’t receive your access email? Contact us at <a href="mailto:mia@playfulheartparenting.com">mia@playfulheartparenting.com</a></p>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=AZNt0ZWh6iaZTi-dDZZbj1HwXVvdpRzbMWc9-pIDnDM25_leStBnilqr8pBfxI46FwRQfAHrc31lEmHG&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+    <script>
+      paypal.Buttons({
+          style: {
+              shape: 'pill',
+              color: 'gold',
+              layout: 'vertical',
+              label: 'subscribe'
+          },
+          createSubscription: function(data, actions) {
+            return actions.subscription.create({
+              plan_id: 'P-4G508223KV1508520NBMCMVQ'
+            });
+          },
+          onApprove: function(data, actions) {
+            alert(data.subscriptionID);
+          }
+      }).render('#paypal-button-container-P-4G508223KV1508520NBMCMVQ');
+
+      paypal.Buttons({
+          style: {
+              shape: 'pill',
+              color: 'gold',
+              layout: 'vertical',
+              label: 'subscribe'
+          },
+          createSubscription: function(data, actions) {
+            return actions.subscription.create({
+              plan_id: 'P-4PM27962EG712070MNBMCPPI'
+            });
+          },
+          onApprove: function(data, actions) {
+            alert(data.subscriptionID);
+          }
+      }).render('#paypal-button-container-P-4PM27962EG712070MNBMCPPI');
+    </script>
+</body>
+</html>
